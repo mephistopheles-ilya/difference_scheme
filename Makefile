@@ -8,8 +8,8 @@ CXXFLAGS ?=  -O3 -mfpmath=sse -fstack-protector-all -g -W -Wall -Wextra -Wunused
 			-Woverloaded-virtual -Wnon-virtual-dtor -Wcast-qual -Wno-suggest-attribute=format\
 			#-fsanitize=leak,undefined,address
 
-#CXXFLAGS ?= -O0 -g -fsanitize=leak,undefined,address
-#LDFLAGS ?=  -O0 -g -fsanitize=leak,undefined,address
+#CXXFLAGS ?= -O3 -g -fsanitize=leak,undefined,address
+#LDFLAGS ?=  -O3 -g -fsanitize=leak,undefined,address
 
 CSRC = main.cpp init_solution.cpp fill_matrix.cpp solve.cpp norms.cpp
 COBJ = main.o init_solution.o fill_matrix.o solve.o norms.o
