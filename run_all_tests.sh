@@ -9,7 +9,7 @@ for C in "${Cs[@]}"; do
         for h in "${delta[@]}"; do
             for tau in "${delta[@]}"; do
                 echo "===================="
-                ./a.out "$h" "$tau" "$mu" "$C" 1
+                ./a.out "$h" "$tau" "$mu" "$C" 1 0
                 echo "===================="
                 echo
             done
@@ -21,7 +21,7 @@ for mu in "${mus[@]}"; do
     for h in "${delta[@]}"; do
         for tau in "${delta[@]}"; do
             echo "===================="
-            ./a.out "$h" "$tau" "$mu" 1.4 0
+            ./a.out "$h" "$tau" "$mu" 1.4 0 0
             echo "==================="
             echo
         done
