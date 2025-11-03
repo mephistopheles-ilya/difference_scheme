@@ -11,3 +11,5 @@ void sub_real_solution (std::vector<double>& solution, double t, double a, doubl
 double calc_discrepancy (std::vector<double> &up_diag, std::vector<double> &diag, std::vector<double> &low_diag, std::vector<double> &rhs
         , std::vector<double> &solution);
 void print_solution (char *file_name, std::vector<double> &solution);
+double stability_norm (std::vector<double> &H_solution, std::vector<double> &V_solution);
+double calc_mass(std::vector<double> &H_solution);

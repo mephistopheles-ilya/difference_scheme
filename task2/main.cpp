@@ -11,7 +11,8 @@
 #include "norms.hpp"
 
 
-
+static double max_time = 6000;
+static double epsilon = 1e-3;
 
 
 int main(int argc, char *argv[])
@@ -45,24 +46,21 @@ int main(int argc, char *argv[])
 
     double (*P) (double, double) = nullptr;
     double (*F) (double, double, double, double) = nullptr;
+    F = f;
     if (is_lin_p != 0)
     {
         P = p_lin;
-        F = f_lin;
     }
     else 
     {
         P = p_pow;
-        F = f_pow;
     }
     
 
     double x_a = 0;
-    double x_b = 1;
+    double x_b = 10;
     double t_a = 0;
-    double t_b = 1;
     size_t x_N = std::floor ((x_b - x_a) / h);
-    size_t t_N = std::floor ((t_b - t_a) / tau);
 
     std::vector<double> up_diag (x_N, 0);
     std::vector<double> diag (x_N + 1, 0);
@@ -74,27 +72,36 @@ int main(int argc, char *argv[])
     std::vector<double> V_solution (x_N + 1, 0);
     
     
-    fill_H_initial (H_solution_prev, x_a, x_b, h, H_0);
-    fill_V_initial (V_solution, x_a, x_b, h, V_0);
+    fill_H_initial (H_solution_prev, x_a, x_b, h, H_024);
+    fill_V_initial (V_solution, x_a, x_b, h, V_024);
 
-    double t = t_a;
+    double initial_massa = calc_mass(H_solution_prev);
+
+    double stab_time = t_a;
     double time1 = 0, time2 = 0;
+    double stab_norm = 1e64;
+    size_t i = 0;
     time1 = clock();
-    for (size_t i = 0; i < t_N + 1; ++i) 
+    for (i = 0; stab_norm > epsilon || stab_norm < max_time; ++i) 
     {
-        t = (i == t_N) ? t_b : t_a + i * tau;
+        stab_time = t_a + i * tau;
 
-        fill_H_matrix (up_diag, diag, low_diag, rhs, H_solution_prev /* n */, V_solution /* n */, x_a, x_b, h, t, tau, f_0); 
+        fill_H_matrix (up_diag, diag, low_diag, rhs, H_solution_prev /* n */, V_solution /* n */, x_a, x_b, h, stab_time, tau, f_0); 
         solve_tree_diag (up_diag, diag, low_diag, rhs, H_solution /* n + 1 */);
 
-        fill_V_matrix (up_diag, diag, low_diag, rhs, H_solution_prev /* n */, H_solution /* n + 1 */, V_solution /* n */, x_a, x_b, h, t, tau, F, mu, P, pp); 
+        fill_V_matrix (up_diag, diag, low_diag, rhs, H_solution_prev /* n */, H_solution /* n + 1 */, V_solution /* n */, x_a, x_b, h, stab_time, tau, F, mu, P, pp); 
         solve_tree_diag (up_diag, diag, low_diag, rhs, V_solution /* n + 1 */);
+
+        stab_norm = stability_norm(H_solution, V_solution);
 
         std::swap(H_solution_prev, H_solution);
     }
     std::swap(H_solution_prev, H_solution);
     time2 = clock();
-    t = (time2 - time1)/CLOCKS_PER_SEC;
+    double calc_time = (time2 - time1)/CLOCKS_PER_SEC;
+
+    double res_mass = calc_mass(H_solution);
+    double delta_mass = (res_mass - initial_massa) / initial_massa;
 
 
 #if 0
@@ -104,21 +111,11 @@ int main(int argc, char *argv[])
     print_solution(file_name.data(), V_solution);
 #endif
 
-    sub_real_solution (H_solution, t_b, x_a, x_b, h, H); 
-    sub_real_solution (V_solution, t_b, x_a, x_b, h, V);
-
-    double C_norm_H = calc_C_norm (H_solution);
-    double C_norm_V = calc_C_norm (V_solution);
-    double L_norm_H = calc_L_norm (H_solution, h);
-    double L_norm_V = calc_L_norm (V_solution, h);
-    double W_norm_H = calc_W_norm (H_solution, h);
-    double W_norm_V = calc_W_norm (V_solution, h);
-
     printf("CFL = %lf\n", tau / h);
-    printf ("h = %lf tau = %lf mu = %lf pp = %lf is_lin_p = %d\n", h, tau, mu, pp, is_lin_p);
-    printf ("C_norm_H = %e  C_norm_V = %e \nL_norm_H = %e  L_norm_V = %e \nW_norm_H = %e  W_norm_V = %e \n"
-            , C_norm_H, C_norm_V, L_norm_H, L_norm_V, W_norm_H, W_norm_V);
-    printf ("time = %e \n", t);
+    printf("h = %lf tau = %lf mu = %lf pp = %lf is_lin_p = %d\n", h, tau, mu, pp, is_lin_p);
+    printf("stab_norm = %e, stab_time = %lf\n", stab_norm, stab_time);
+    printf("delta_massa = %e\n", delta_mass);
+    printf("time = %e \n", calc_time);
 
     return 0;
 }

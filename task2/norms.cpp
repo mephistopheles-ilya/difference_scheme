@@ -92,3 +92,34 @@ double calc_discrepancy (std::vector<double> &up_diag, std::vector<double> &diag
     }
     return std::sqrt(norm);
 }
+
+double stability_norm (std::vector<double> &H_solution, std::vector<double> &V_solution)
+{
+    double H_av = 0;
+    double V_av = 0;
+    double sz = H_solution.size();
+    for (size_t i = 1; i < sz - 1; ++i)
+    {
+        H_av += H_solution[i];
+    }
+    H_av /= sz;
+    double H_norm = 0;
+    double V_norm = 0;
+    for (size_t i = 0; i < sz; ++i)
+    {
+        H_norm = std::max(fabs(H_solution[i] - H_av), H_norm);
+        V_norm = std::max(fabs(V_solution[i] - V_av), V_norm);
+    }
+    return std::max(H_norm, V_norm);
+}
+
+double calc_mass(std::vector<double> &H_solution)
+{
+    double sum = 0;
+    for (auto H: H_solution)
+    {
+        sum += H;
+    }
+    return sum;
+}
+
