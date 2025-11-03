@@ -12,7 +12,7 @@
 
 
 static double max_time = 6000;
-static double epsilon = 1e-3;
+static double epsilon = 3 * 1e-3;
 
 
 int main(int argc, char *argv[])
@@ -80,11 +80,11 @@ int main(int argc, char *argv[])
     double stab_time = t_a;
     double time1 = 0, time2 = 0;
     double stab_norm = 1e64;
-    size_t i = 0;
+    size_t stab_index = 0;
     time1 = clock();
-    for (i = 0; stab_norm > epsilon || stab_norm < max_time; ++i) 
+    for (stab_index = 0; stab_norm > epsilon && stab_time < max_time;) 
     {
-        stab_time = t_a + i * tau;
+        stab_time = t_a + stab_index * tau;
 
         fill_H_matrix (up_diag, diag, low_diag, rhs, H_solution_prev /* n */, V_solution /* n */, x_a, x_b, h, stab_time, tau, f_0); 
         solve_tree_diag (up_diag, diag, low_diag, rhs, H_solution /* n + 1 */);
@@ -93,10 +93,18 @@ int main(int argc, char *argv[])
         solve_tree_diag (up_diag, diag, low_diag, rhs, V_solution /* n + 1 */);
 
         stab_norm = stability_norm(H_solution, V_solution);
+#if 0
+        if (stab_index % 10 == 0)
+        {
+            printf("current_stab_norm = %lf\n", stab_norm);
+        }
+#endif
 
         std::swap(H_solution_prev, H_solution);
+        stab_index += 1;
     }
     std::swap(H_solution_prev, H_solution);
+    stab_index -= 1;
     time2 = clock();
     double calc_time = (time2 - time1)/CLOCKS_PER_SEC;
 
@@ -113,7 +121,7 @@ int main(int argc, char *argv[])
 
     printf("CFL = %lf\n", tau / h);
     printf("h = %lf tau = %lf mu = %lf pp = %lf is_lin_p = %d\n", h, tau, mu, pp, is_lin_p);
-    printf("stab_norm = %e, stab_time = %lf\n", stab_norm, stab_time);
+    printf("stab_norm = %e, stab_time = %lf\n, stab_index = %lu\n", stab_norm, stab_time, stab_index);
     printf("delta_massa = %e\n", delta_mass);
     printf("time = %e \n", calc_time);
 
