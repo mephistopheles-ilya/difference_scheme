@@ -182,7 +182,7 @@ int main(int argc, char *argv[])
         double W_norm_V = calc_W_norm (V_solution, h);
 
         printf("CFL = %lf\n", tau / h);
-        printf ("h = %lf tau = %lf mu = %lf pp = %lf is_lin_p = %d\n", h, tau, mu, pp, is_lin_p);
+        printf ("h = %.8lf tau = %.8lf mu = %lf pp = %lf is_lin_p = %d\n", h, tau, mu, pp, is_lin_p);
         printf ("C_norm_H = %e  C_norm_V = %e \nL_norm_H = %e  L_norm_V = %e \nW_norm_H = %e  W_norm_V = %e \n"
                 , C_norm_H, C_norm_V, L_norm_H, L_norm_V, W_norm_H, W_norm_V);
         printf ("time = %e \n", t);

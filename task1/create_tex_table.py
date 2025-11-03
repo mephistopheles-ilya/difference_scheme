@@ -30,22 +30,29 @@ with open(file_name, 'r') as file:
             key.clear()
 
 
+#delta=('0.10000000', '0.01000000', '0.00100000', '0.00010000')
+delta=('0.00500000', '0.00250000', '0.00125000', '0.00062500', '0.00031250', '0.00015625')
+
+
 for pp in ('1.000000', '10.000000', '100.000000', '1.400000'):
     for mu in ('0.100000', '0.010000', '0.001000'):
-        print("\\begin{tabular}{ |l|l|l|l|l| }")
+        print("\\begin{tabular}{ |l|l|l|l|l|l|l| }")
         print("\\hline")
         if (pp == '1.400000'):
-            print("\\multicolumn{5}{|c|}{$\\mu =", mu.rstrip('0').rstrip('.'), ", p(\\rho) = \\rho^{1.4}$}\\\\")
+            print("\\multicolumn{7}{|c|}{$\\mu =", mu.rstrip('0').rstrip('.'), ", p(\\rho) = \\rho^{1.4}$}\\\\")
         else:
-            print("\\multicolumn{5}{|c|}{$\\mu =", mu.rstrip('0').rstrip('.'), ", p(\\rho) =", pp.rstrip('0').rstrip('.'), "\\rho$}\\\\")
+            print("\\multicolumn{7}{|c|}{$\\mu =", mu.rstrip('0').rstrip('.'), ", p(\\rho) =", pp.rstrip('0').rstrip('.'), "\\rho$}\\\\")
         print("\\hline")
-        print("$\\tau\\setminus h$ & $0.1$ & $0.01$ & $0.001$ & $0.0001$\\\\")
+        #print("$\\tau\\setminus h$ & $0.1$ & $0.01$ & $0.001$ & $0.0001$\\\\")
+        print("$\\tau\\setminus h$ & $0.005$ & $0.0025$ & $0.00125$ & $0.000625$ & $0.0003125$ & $0.00015625$\\\\")
         print("\\hline")
-        for tau in ("0.100000", "0.010000", "0.001000", "0.000100"):
-            print("$", tau, "$", sep="", end=" ")
+        for tau in delta:
+            print("$", tau.rstrip('0'), "$", sep="", end=" ")
             for i in (0, 1, 2, 3):
-                for h in ("0.100000", "0.010000", "0.001000", "0.000100"):
-                    print("&", " ", "$", table[(h, tau, mu, pp)][i], "$", end=" ", sep="")
+                for h in delta:
+                    #value = table.get((h, tau, mu, pp), 'nan')
+                    value = table[(h, tau, mu, pp)][i]
+                    print("&", " ", "$", value, "$", end=" ", sep="")
                 print("\\\\")
             print("\\hline")
         print("\\end{tabular}")
