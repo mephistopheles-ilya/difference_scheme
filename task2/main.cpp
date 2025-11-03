@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <cmath>
 #include <stdio.h>
 #include <iostream>
@@ -12,17 +13,17 @@
 
 
 static double max_time = 6000;
-static double epsilon = 3 * 1e-3;
+static double epsilon = 3 * 1e-1;
 
 
 int main(int argc, char *argv[])
 {
     //feenableexcept(FE_DIVBYZERO | FE_INVALID | FE_OVERFLOW | FE_UNDERFLOW);
 
-    if (argc != 6)
+    if (argc != 8)
     {
         printf("Wrong number of arguments\n");
-        printf("Usage: %s h tau mu pp is_lin_p \n", argv[0]);
+        printf("Usage: %s h tau mu pp is_lin_p count_to_stop task_num\n", argv[0]);
         return 1;
     }
 
@@ -31,12 +32,16 @@ int main(int argc, char *argv[])
     double mu = 0;
     double pp = 0;
     int  is_lin_p = 0;
+    int count_to_stop = 0;
+    int task_num = 0;
 
     if (!(sscanf(argv[1], "%lf", &h) == 1
        && sscanf(argv[2], "%lf", &tau) == 1
        && sscanf(argv[3], "%lf", &mu) == 1
        && sscanf(argv[4], "%lf", &pp) == 1
        && sscanf(argv[5], "%d",  &is_lin_p) == 1
+       && sscanf(argv[6], "%d",  &count_to_stop) == 1
+       && sscanf(argv[7], "%d",  &task_num) == 1
        ))
     {
         printf("Wrong type of arguments\n");
@@ -72,17 +77,26 @@ int main(int argc, char *argv[])
     std::vector<double> V_solution (x_N + 1, 0);
     
     
-    fill_H_initial (H_solution_prev, x_a, x_b, h, H_024);
-    fill_V_initial (V_solution, x_a, x_b, h, V_024);
+    if (task_num == 24)
+    {
+        fill_H_initial (H_solution_prev, x_a, x_b, h, H_024);
+        fill_V_initial (V_solution, x_a, x_b, h, V_024);
+    }
+    if (task_num == 25)
+    {
+        fill_H_initial (H_solution_prev, x_a, x_b, h, H_025);
+        fill_V_initial (V_solution, x_a, x_b, h, V_025);
+    }
+
 
     double initial_massa = calc_mass(H_solution_prev);
 
     double stab_time = t_a;
     double time1 = 0, time2 = 0;
     double stab_norm = 1e64;
-    size_t stab_index = 0;
+    int stab_index = 0;
     time1 = clock();
-    for (stab_index = 0; stab_norm > epsilon && stab_time < max_time;) 
+    for (stab_index = 0; stab_norm > epsilon && stab_time < max_time && (stab_index <= count_to_stop || count_to_stop < 0);) 
     {
         stab_time = t_a + stab_index * tau;
 
@@ -94,7 +108,7 @@ int main(int argc, char *argv[])
 
         stab_norm = stability_norm(H_solution, V_solution);
 #if 0
-        if (stab_index % 10 == 0)
+        if (stab_index % 100 == 0)
         {
             printf("current_stab_norm = %lf\n", stab_norm);
         }
@@ -119,9 +133,10 @@ int main(int argc, char *argv[])
     print_solution(file_name.data(), V_solution);
 #endif
 
-    printf("CFL = %lf\n", tau / h);
     printf("h = %lf tau = %lf mu = %lf pp = %lf is_lin_p = %d\n", h, tau, mu, pp, is_lin_p);
-    printf("stab_norm = %e, stab_time = %lf\n, stab_index = %lu\n", stab_norm, stab_time, stab_index);
+    printf("stab_norm = %e\n", stab_norm);
+    printf("stab_time = %lf\n", stab_time);
+    printf("stab_index = %d\n", stab_index);
     printf("delta_massa = %e\n", delta_mass);
     printf("time = %e \n", calc_time);
 
