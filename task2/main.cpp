@@ -12,6 +12,8 @@
 #include "norms.hpp"
 
 
+#define PRINT 1
+
 static double max_time = 6000;
 static double epsilon = 3 * 1e-3;
 
@@ -93,6 +95,8 @@ int main(int argc, char *argv[])
 
     double initial_massa = calc_mass(H_solution_prev);
 
+    std::string file_name = "2d.txt";
+    FILE* file = fopen(file_name.data(), "w");
     double stab_time = t_a;
     double time1 = 0, time2 = 0;
     double stab_norm = 1e64;
@@ -109,16 +113,27 @@ int main(int argc, char *argv[])
         solve_tree_diag (up_diag, diag, low_diag, rhs, V_solution /* n + 1 */);
 
         stab_norm = stability_norm(H_solution, V_solution);
-#if 0
+#if 1
         if (stab_index % 1000 == 0)
         {
             printf("current_stab_norm = %lf\n", stab_norm);
         }
 #endif
+        if (PRINT)
+        {
+            size_t sz = V_solution.size();
+            for (size_t i = 0; i < sz; ++i)
+            {
+                fprintf(file, "%e ", V_solution[i]); 
+            }
+            fprintf(file, "\n");
+        }
+
 
         std::swap(H_solution_prev, H_solution);
         stab_index += 1;
     }
+    fclose(file);
     std::swap(H_solution_prev, H_solution);
     stab_index -= 1;
     time2 = clock();
