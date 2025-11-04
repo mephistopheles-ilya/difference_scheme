@@ -129,7 +129,7 @@ int main(int argc, char *argv[])
         fill_V_initial (V_solution_nested, x_a, x_b, h_nested, V_0);
         for (size_t i = 0; i < t_N_nested + 1; ++i)
         {
-            t = (i == t_N) ? t_b : t_a + i * tau_nested;
+            t = (i == t_N_nested) ? t_b : t_a + i * tau_nested;
             fill_H_matrix (up_diag, diag, low_diag, rhs, H_solution_prev /* n */, V_solution_nested /* n */, x_a, x_b, h_nested, t, tau_nested, f_0); 
             solve_tree_diag (up_diag, diag, low_diag, rhs, H_solution_nested /* n + 1 */);
 

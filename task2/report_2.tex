@@ -1,0 +1,1765 @@
+\documentclass[11pt]{extarticle}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{float}
+\geometry{a4paper, margin=1in, top=0.6in}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=red, urlcolor=purple]{hyperref}
+
+
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{lemma}{Лемма}
+\newtheorem{definition}{Опр.}
+
+\usepackage{listings}
+
+\lstset{
+	language=C++,
+	basicstyle=\ttfamily\small,
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+	showstringspaces=false,
+	tabsize=4
+}
+
+
+
+\begin{document}
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1 \rho, h = 0.01, \tau = 0.001$}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st} (111)$\\
+	\hline
+	$norm$ & $1.479612e+02$ & $3.545344e+02$ & $6.742111e+02$ & $2.835957e+03$\\
+	\hline
+	$\Delta_{massa}$ & $0.000000e+00$ & $6.525722e-01$ & $6.143926e-01$ & $6.139451e-01$ \\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.01 ,p(\rho) = \rho^{1,4}$}\\
+	\hline
+	$ $ & tau=h=$0.001$\\
+	\hline
+	$h - h^{1}$ & $1.460322e-02$ \\
+	& $6.516847e-03$ \\
+	& $1.391208e-01$ \\
+	\hline
+	$h - h^{2}$ &$2.162859e-02$ \\
+	& $9.692793e-03$ \\
+	& $2.057426e-01$ \\
+	\hline
+	$h - h^{3}$ & $2.507996e-02$ \\
+	& $1.126091e-02$ \\
+	& $2.383676e-01$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.001 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 2.305 )$\\
+	\hline
+	$norm$ & $4.243990e-01$ & $3.353266e-01$ & $3.178451e-01$ & $2.999970e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-4.420776e-05$ & $-6.804645e-05$ & $-8.264522e-05$ & $-9.421503e-05$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.001 ,h= 0.001 \\
+	\hline
+	$h - h^{1}$ & $9.938688e-01$ \\
+	& $9.929934e-01$ \\
+	& $8.616720e+00$ \\
+	\hline
+	$h - h^{2}$ & $9.938688e-01$ \\
+	& $8.974299e-01$ \\
+	& $8.566988e+00$ \\
+	\hline
+	$h - h^{3}$ & $9.938688e-01$ \\
+	& $8.687858e-01$ \\
+	& $8.639684e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.1 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 1.9 )$\\
+\hline
+$norm$ & $7.429343e-01$ & $3.396568e-01$ & $3.172723e-01$ & $2.984304e-01$\\
+\hline
+$\Delta_{massa}$ & $-2.643572e-03$ & $-5.166423e-03$ & $-6.432961e-03$ & $-7.375623e-03$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.1 ,h= 0.1 \\
+\hline
+$h - h^{1}$ & $9.980282e-01$ \\
+& $1.156343e+00$ \\
+& $4.252140e+00$ \\
+\hline
+$h - h^{2}$ & $9.980282e-01$ \\
+& $1.053141e+00$ \\
+& $4.065527e+00$ \\
+\hline
+$h - h^{3}$ & $9.980282e-01$ \\
+& $1.009132e+00$ \\
+& $3.834561e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.01 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 2.8 )$\\
+\hline
+$norm$ & $3.809329e-01$ & $3.390748e-01$ & $3.189664e-01$ & $2.997696e-01$\\
+\hline
+$\Delta_{massa}$ & $-3.926250e-04$ & $-6.311238e-04$ & $-7.828216e-04$ & $-8.718955e-04$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.01 ,h= 0.1 \\
+\hline
+$h - h^{1}$ & $9.698191e-01$ \\
+& $9.986665e-01$ \\
+& $2.744338e+00$ \\
+\hline
+$h - h^{2}$ & $9.698191e-01$ \\
+& $9.208262e-01$ \\
+& $2.538195e+00$ \\
+\hline
+$h - h^{3}$ & $9.698191e-01$ \\
+& $8.945214e-01$ \\
+& $2.464405e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.001 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 2.954 )$\\
+\hline
+$norm$ & $3.566284e-01$ & $3.392765e-01$ & $3.180173e-01$ & $2.999648e-01$\\
+\hline
+$\Delta_{massa}$ & $-4.106403e-05$ & $-6.525701e-05$ & $-8.086065e-05$ & $-2.028989e-05$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.001 ,h= 0.1 \\
+\hline
+$h - h^{1}$ & $9.656066e-01$ \\
+& $9.891431e-01$ \\
+& $2.682046e+00$ \\
+\hline
+$h - h^{2}$ & $9.656066e-01$ \\
+& $9.134557e-01$ \\
+& $2.502788e+00$ \\
+\hline
+$h - h^{3}$ & $9.656066e-01$ \\
+& $8.878688e-01$ \\
+& $2.426292e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.1 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 1.5 )$\\
+\hline
+$norm$ & $8.201953e-01$ & $3.363583e-01$ & $3.175066e-01$ & $2.985451e-01$\\
+\hline
+$\Delta_{massa}$ & $-3.891948e-03$ & $-6.411377e-03$ & $-7.707898e-03$ & $-8.603721e-03$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.1 ,h= 0.01 \\
+\hline
+$h - h^{1}$ & $9.981319e-01$ \\
+& $1.095112e+00$ \\
+& $5.634551e+00$ \\
+\hline
+$h - h^{2}$ & $9.981319e-01$ \\
+& $9.844610e-01$ \\
+& $5.604337e+00$ \\
+\hline
+$h - h^{3}$ & $9.981319e-01$ \\
+& $9.359979e-01$ \\
+& $5.538305e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.01 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 2.24 )$\\
+\hline
+$norm$ & $4.556908e-01$ & $3.350562e-01$ & $3.175504e-01$ & $2.997936e-01$\\
+\hline
+$\Delta_{massa}$ & $-4.252914e-04$ & $-6.614727e-04$ & $-8.030417e-04$ & $-9.146924e-04$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.01 ,h= 0.01 \\
+\hline
+$h - h^{1}$ & $9.937430e-01$ \\
+& $1.006946e+00$ \\
+& $4.956332e+00$ \\
+\hline
+$h - h^{2}$ & $9.937430e-01$ \\
+& $9.078146e-01$ \\
+& $4.777649e+00$ \\
+\hline
+$h - h^{3}$ & $9.937430e-01$ \\
+& $8.776189e-01$ \\
+& $4.740691e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.001 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 2.347 )$\\
+\hline
+$norm$ & $4.175219e-01$ & $3.353267e-01$ & $3.178226e-01$ & $2.999673e-01$\\
+\hline
+$\Delta_{massa}$ & $-4.352918e-05$ & $-6.744383e-05$ & $-8.216091e-05$ & $-9.379893e-05$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.001 ,h= 0.01 \\
+\hline
+$h - h^{1}$ & $9.934343e-01$ \\
+& $9.974813e-01$ \\
+& $5.516967e+00$ \\
+\hline
+$h - h^{2}$ & $9.934343e-01$ \\
+& $9.009470e-01$ \\
+& $5.253906e+00$ \\
+\hline
+$h - h^{3}$ & $9.934343e-01$ \\
+& $8.718256e-01$ \\
+& $5.159622e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.1 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 1.5 )$\\
+\hline
+$norm$ & $8.158024e-01$ & $3.356618e-01$ & $3.163116e-01$ & $2.970525e-01$\\
+\hline
+$\Delta_{massa}$ & $-4.127036e-03$ & $-6.665248e-03$ & $-7.952274e-03$ & $-8.845206e-03$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.1 ,h= 0.001 \\
+\hline
+$h - h^{1}$ & $9.980247e-01$ \\
+& $1.085934e+00$ \\
+& $5.893837e+00$ \\
+\hline
+$h - h^{2}$ & $9.980247e-01$ \\
+& $9.768371e-01$ \\
+& $5.873544e+00$ \\
+\hline
+$h - h^{3}$ & $9.980247e-01$ \\
+& $9.294710e-01$ \\
+& $5.824602e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.01 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 2.2 )$\\
+\hline
+$norm$ & $4.630469e-01$ & $3.350444e-01$ & $3.175386e-01$ & $2.997906e-01$\\
+\hline
+$\Delta_{massa}$ & $-4.355116e-04$ & $-6.712398e-04$ & $-8.118244e-04$ & $-9.225835e-04$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.01 ,h= 0.001 \\
+\hline
+$h - h^{1}$ & $9.933318e-01$ \\
+& $9.983642e-01$ \\
+& $5.407861e+00$ \\
+\hline
+$h - h^{2}$ & $9.933318e-01$ \\
+& $9.012428e-01$ \\
+& $5.294680e+00$ \\
+\hline
+$h - h^{3}$ & $9.933318e-01$ \\
+& $8.717826e-01$ \\
+& $5.268700e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.001 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 2.305 )$\\
+\hline
+$norm$ & $4.243990e-01$ & $3.353266e-01$ & $3.178451e-01$ & $2.999970e-01$\\
+\hline
+$\Delta_{massa}$ & $-4.420776e-05$ & $-6.804645e-05$ & $-8.264522e-05$ & $-9.421503e-05$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.001 ,h= 0.001 \\
+\hline
+$h - h^{1}$ & $9.938688e-01$ \\
+& $9.929934e-01$ \\
+& $8.616720e+00$ \\
+\hline
+$h - h^{2}$ & $9.938688e-01$ \\
+& $8.974299e-01$ \\
+& $8.566988e+00$ \\
+\hline
+$h - h^{3}$ & $9.938688e-01$ \\
+& $8.687858e-01$ \\
+& $8.639684e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.1 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 6.1 )$\\
+\hline
+$norm$ & $3.637357e-01$ & $3.339955e-01$ & $6.830301e-01$ & $2.904198e-01$\\
+\hline
+$\Delta_{massa}$ & $-2.029844e-02$ & $-3.141424e-02$ & $-3.143315e-02$ & $-4.321580e-02$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.1 ,h= 0.1 \\
+\hline
+$h - h^{1}$ & $5.758272e-01$ \\
+& $7.677315e-01$ \\
+& $3.419978e+00$ \\
+\hline
+$h - h^{2}$ & $5.758272e-01$ \\
+& $6.977486e-01$ \\
+& $3.146745e+00$ \\
+\hline
+$h - h^{3}$ & $5.758272e-01$ \\
+& $6.743642e-01$ \\
+& $3.107321e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.01 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 12.84 )$\\
+\hline
+$norm$ & $4.360437e-01$ & $3.935498e-01$ & $4.207634e-01$ & $2.966670e-01$\\
+\hline
+$\Delta_{massa}$ & $-2.709480e-03$ & $-5.474107e-03$ & $-6.771196e-03$ & $-5.974955e-03$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.01 ,h= 0.1 \\
+\hline
+$h - h^{1}$ & $5.188668e-01$ \\
+& $6.337876e-01$ \\
+& $2.383285e+00$ \\
+\hline
+$h - h^{2}$ & $5.184482e-01$ \\
+& $6.942770e-01$ \\
+& $2.392453e+00$ \\
+\hline
+$h - h^{3}$ & $5.184482e-01$ \\
+& $6.513611e-01$ \\
+& $2.023899e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.001 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 17.245 )$\\
+\hline
+$norm$ & $7.938445e-01$ & $1.051031e+00$ & $7.883623e-01$ & $2.999009e-01$\\
+\hline
+$\Delta_{massa}$ & $5.768500e-03$ & $-1.148040e-03$ & $7.035757e-03$ & $-1.936573e-03$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.001 ,h= 0.1 \\
+\hline
+$h - h^{1}$ & $5.586838e-01$ \\
+& $7.723574e-01$ \\
+& $2.519754e+00$ \\
+\hline
+$h - h^{2}$ & $5.348510e-01$ \\
+& $5.990746e-01$ \\
+& $2.091775e+00$ \\
+\hline
+$h - h^{3}$ & $5.348510e-01$ \\
+& $6.198744e-01$ \\
+& $1.905114e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.1 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 4.2 )$\\
+\hline
+$norm$ & $2.425386e+00$ & $1.416150e+00$ & $1.243476e+02$ & $nan$\\
+\hline
+$\Delta_{massa}$ & $-2.611143e-01$ & $-3.463887e-01$ & $-8.251413e-01$ & $-nan$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.1 ,h= 0.01 \\
+\hline
+$h - h^{1}$ & $3.955153e+00$ \\
+& $1.629203e+00$ \\
+& $1.804529e+02$ \\
+\hline
+$h - h^{2}$ & $3.955153e+00$ \\
+& $1.518031e+00$ \\
+& $1.781732e+02$ \\
+\hline
+$h - h^{3}$ & $3.955153e+00$ \\
+& $1.505405e+00$ \\
+& $1.781657e+02$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.01 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 7.01 )$\\
+\hline
+$norm$ & $3.469571e-01$ & $3.441464e-01$ & $3.286820e-01$ & $2.999193e-01$\\
+\hline
+$\Delta_{massa}$ & $-2.720601e-03$ & $-4.304313e-03$ & $-5.913130e-03$ & $-7.417898e-03$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.01 ,h= 0.01 \\
+\hline
+$h - h^{1}$ & $4.130783e-01$ \\
+& $7.398396e-01$ \\
+& $3.172371e+00$ \\
+\hline
+$h - h^{2}$ & $4.130783e-01$ \\
+& $6.688980e-01$ \\
+& $3.052528e+00$ \\
+\hline
+$h - h^{3}$ & $4.130783e-01$ \\
+& $6.355539e-01$ \\
+& $2.786112e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.001 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 8.188 )$\\
+\hline
+$norm$ & $3.470303e-01$ & $8.725930e-01$ & $3.297830e-01$ & $2.999611e-01$\\
+\hline
+$\Delta_{massa}$ & $-3.346973e-04$ & $3.025569e-04$ & $-7.824871e-04$ & $-9.772318e-04$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.001 ,h= 0.01 \\
+\hline
+$h - h^{1}$ & $4.125083e-01$ \\
+& $6.967547e-01$ \\
+& $3.041712e+00$ \\
+\hline
+$h - h^{2}$ & $4.125083e-01$ \\
+& $6.697789e-01$ \\
+& $3.007581e+00$ \\
+\hline
+$h - h^{3}$ & $4.125083e-01$ \\
+& $6.337471e-01$ \\
+& $2.730016e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.1 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 4.6 )$\\
+\hline
+$norm$ & $1.151076e+01$ & $7.645704e+00$ & $3.399370e+02$ & $nan$\\
+\hline
+$\Delta_{massa}$ & $-3.441363e-01$ & $-3.748305e-01$ & $-8.400686e-01$ & $-nan$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.1 ,h= 0.001 \\
+\hline
+$h - h^{1}$ & $9.802032e+00$ \\
+& $1.547688e+00$ \\
+& $7.776558e+02$ \\
+\hline
+$h - h^{2}$ & $9.802032e+00$ \\
+& $1.342888e+00$ \\
+& $7.735146e+02$ \\
+\hline
+$h - h^{3}$ & $9.802032e+00$ \\
+& $1.327080e+00$ \\
+& $7.735068e+02$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.01 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 6.84 )$\\
+\hline
+$norm$ & $3.469583e-01$ & $3.440169e-01$ & $3.284579e-01$ & $2.999111e-01$\\
+\hline
+$\Delta_{massa}$ & $-2.905882e-03$ & $-4.475841e-03$ & $-6.312849e-03$ & $-7.588774e-03$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.01 ,h= 0.001 \\
+\hline
+$h - h^{1}$ & $4.130840e-01$ \\
+& $7.374283e-01$ \\
+& $3.751491e+00$ \\
+\hline
+$h - h^{2}$ & $4.130840e-01$ \\
+& $6.663490e-01$ \\
+& $3.714047e+00$ \\
+\hline
+$h - h^{3}$ & $4.130840e-01$ \\
+& $6.342702e-01$ \\
+& $3.502241e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.001 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 8.044 )$\\
+\hline
+$norm$ & $3.470350e-01$ & $8.857015e-01$ & $3.283209e-01$ & $2.999922e-01$\\
+\hline
+$\Delta_{massa}$ & $-3.421604e-04$ & $-4.913135e-04$ & $-8.034213e-04$ & $-9.751159e-04$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.001 ,h= 0.001 \\
+\hline
+$h - h^{1}$ & $4.124068e-01$ \\
+& $7.029508e-01$ \\
+& $4.118375e+00$ \\
+\hline
+$h - h^{2}$ & $4.124068e-01$ \\
+& $6.667749e-01$ \\
+& $4.087844e+00$ \\
+\hline
+$h - h^{3}$ & $4.124068e-01$ \\
+& $6.309544e-01$ \\
+& $3.893144e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.1 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 3.4 )$\\
+\hline
+$norm$ & $6.384735e-01$ & $9.704658e-01$ & $2.978019e+04$ & $nan$\\
+\hline
+$\Delta_{massa}$ & $-1.490970e-02$ & $-6.801894e-02$ & $4.545247e+01$ & $-nan$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.1 ,h= 0.1 \\
+\hline
+$h - h^{1}$ & $9.860579e-01$ \\
+& $9.637855e-01$ \\
+& $5.619292e+00$ \\
+\hline
+$h - h^{2}$ & $9.860579e-01$ \\
+& $8.997953e-01$ \\
+& $4.629084e+00$ \\
+\hline
+$h - h^{3}$ & $9.860579e-01$ \\
+& $8.749292e-01$ \\
+& $4.389513e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.01 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 19.66 )$\\
+\hline
+$norm$ & $1.094314e+00$ & $4.454221e-01$ & $3.488648e-01$ & $2.991113e-01$\\
+\hline
+$\Delta_{massa}$ & $5.746618e-03$ & $-1.262302e-02$ & $-1.511438e-02$ & $-2.058552e-02$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.01 ,h= 0.1 \\
+\hline
+$h - h^{1}$ & $9.440045e-01$ \\
+& $8.193354e-01$ \\
+& $3.704201e+00$ \\
+\hline
+$h - h^{2}$ & $5.712018e-01$ \\
+& $6.545682e-01$ \\
+& $3.231577e+00$ \\
+\hline
+$h - h^{3}$ & $5.655065e-01$ \\
+& $6.301177e-01$ \\
+& $2.859316e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.001 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 54.532 )$\\
+\hline
+$norm$ & $7.652879e-01$ & $9.334546e-01$ & $3.397229e-01$ & $2.992325e-01$\\
+\hline
+$\Delta_{massa}$ & $-8.546636e-04$ & $-6.955955e-03$ & $-6.535029e-03$ & $-9.571283e-03$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.001 ,h= 0.1 \\
+\hline
+$h - h^{1}$ & $7.125178e-01$ \\
+& $6.908112e-01$ \\
+& $4.079103e+00$ \\
+\hline
+$h - h^{2}$ & $6.909241e-01$ \\
+& $7.172978e-01$ \\
+& $3.919662e+00$ \\
+\hline
+$h - h^{3}$ & $6.869001e-01$ \\
+& $6.842825e-01$ \\
+& $3.329980e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.1 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 1.7 )$\\
+\hline
+$norm$ & $9.855761e+01$ & $3.550528e+08$ & $2.875045e+32$ & $nan$\\
+\hline
+$\Delta_{massa}$ & $-3.395200e-01$ & $3.007095e+04$ & $1.498755e+30$ & $-nan$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.1 ,h= 0.01 \\
+\hline
+$h - h^{1}$ & $2.176847e+00$ \\
+& $1.453128e+00$ \\
+& $5.077347e+01$ \\
+\hline
+$h - h^{2}$ & $4.702792e+00$ \\
+& $1.868566e+00$ \\
+& $7.333712e+01$ \\
+\hline
+$h - h^{3}$ & $2.568096e+00$ \\
+& $1.308964e+00$ \\
+& $7.500009e+01$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.01 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 0.69 )$\\
+\hline
+$norm$ & $9.039247e-01$ & $1.453736e+00$ & $1.448175e+03$ & $nan$\\
+\hline
+$\Delta_{massa}$ & $-2.566826e-03$ & $-1.394627e-02$ & $1.335236e-02$ & $-nan$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.01 ,h= 0.01 \\
+\hline
+$h - h^{1}$ & $1.000000e+00$ \\
+& $1.173023e+00$ \\
+& $1.165402e+01$ \\
+\hline
+$h - h^{2}$ & $1.000000e+00$ \\
+& $1.060424e+00$ \\
+& $1.117344e+01$ \\
+\hline
+$h - h^{3}$ & $1.000000e+00$ \\
+& $9.995429e-01$ \\
+& $1.081391e+01$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.001 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 12.806 )$\\
+\hline
+$norm$ & $4.240242e-01$ & $4.175284e-01$ & $3.477537e-01$ & $2.987149e-01$\\
+\hline
+$\Delta_{massa}$ & $-2.150406e-03$ & $-4.526553e-03$ & $-6.367577e-03$ & $-7.127378e-03$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.001 ,h= 0.01 \\
+\hline
+$h - h^{1}$ & $5.330956e-01$ \\
+& $6.238795e-01$ \\
+& $6.022877e+00$ \\
+\hline
+$h - h^{2}$ & $5.315683e-01$ \\
+& $6.832817e-01$ \\
+& $6.087992e+00$ \\
+\hline
+$h - h^{3}$ & $5.315683e-01$ \\
+& $6.402314e-01$ \\
+& $5.356331e+00$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.1 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 1.7 )$\\
+\hline
+$norm$ & $1.861896e+03$ & $6.803302e+06$ & $3.783067e+35$ & $nan$\\
+\hline
+$\Delta_{massa}$ & $-1.982005e-02$ & $-4.429861e+02$ & $3.534304e+29$ & $-nan$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.1 ,h= 0.001 \\
+\hline
+$h - h^{1}$ & $1.027441e+01$ \\
+& $1.763451e+00$ \\
+& $4.244250e+02$ \\
+\hline
+$h - h^{2}$ & $5.357894e+01$ \\
+& $3.531493e+00$ \\
+& $2.188789e+03$ \\
+\hline
+$h - h^{3}$ & $3.072669e+00$ \\
+& $1.521438e+00$ \\
+& $6.403191e+01$ \\
+\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+\hline
+\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.01 $}\\
+\hline
+$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 0.42 )$\\
+\hline
+$norm$ & $2.191665e+00$ & $3.503399e+00$ & $1.077707e+04$ & $nan$\\
+\hline
+$\Delta_{massa}$ & $-2.612582e-02$ & $-4.801301e-02$ & $4.595465e-02$ & $-nan$\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+\hline
+\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+\hline
+$ $ & tau= 0.01 ,h= 0.001 \\
+\hline
+$h - h^{1}$ & $3.955153e+00$ \\
+& $1.259116e+00$ \\
+& $5.690708e+02$ \\
+\hline
+$h - h^{2}$ & $3.955153e+00$ \\
+& $1.150499e+00$ \\
+& $5.642160e+02$ \\
+\hline
+$h - h^{3}$ & $3.955153e+00$ \\
+& $1.097598e+00$ \\
+& $5.634172e+02$ \\
+\hline
+\end{tabular}
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.1 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 1.9 )$\\
+	\hline
+	$norm$ & $7.429343e-01$ & $3.396568e-01$ & $3.172723e-01$ & $2.984304e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-2.643572e-03$ & $-5.166423e-03$ & $-6.432961e-03$ & $-7.375623e-03$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.1 ,h= 0.1 \\
+	\hline
+	$h - h^{1}$ & $9.980282e-01$ \\
+	& $1.156343e+00$ \\
+	& $4.252140e+00$ \\
+	\hline
+	$h - h^{2}$ & $9.980282e-01$ \\
+	& $1.053141e+00$ \\
+	& $4.065527e+00$ \\
+	\hline
+	$h - h^{3}$ & $9.980282e-01$ \\
+	& $1.009132e+00$ \\
+	& $3.834561e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.01 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 2.8 )$\\
+	\hline
+	$norm$ & $3.809329e-01$ & $3.390748e-01$ & $3.189664e-01$ & $2.997696e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-3.926250e-04$ & $-6.311238e-04$ & $-7.828216e-04$ & $-8.718955e-04$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.01 ,h= 0.1 \\
+	\hline
+	$h - h^{1}$ & $9.698191e-01$ \\
+	& $9.986665e-01$ \\
+	& $2.744338e+00$ \\
+	\hline
+	$h - h^{2}$ & $9.698191e-01$ \\
+	& $9.208262e-01$ \\
+	& $2.538195e+00$ \\
+	\hline
+	$h - h^{3}$ & $9.698191e-01$ \\
+	& $8.945214e-01$ \\
+	& $2.464405e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.001 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 2.954 )$\\
+	\hline
+	$norm$ & $3.566284e-01$ & $3.392765e-01$ & $3.180173e-01$ & $2.999648e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-4.106403e-05$ & $-6.525701e-05$ & $-8.086065e-05$ & $-2.028989e-05$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.001 ,h= 0.1 \\
+	\hline
+	$h - h^{1}$ & $9.656066e-01$ \\
+	& $9.891431e-01$ \\
+	& $2.682046e+00$ \\
+	\hline
+	$h - h^{2}$ & $9.656066e-01$ \\
+	& $9.134557e-01$ \\
+	& $2.502788e+00$ \\
+	\hline
+	$h - h^{3}$ & $9.656066e-01$ \\
+	& $8.878688e-01$ \\
+	& $2.426292e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.1 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 1.5 )$\\
+	\hline
+	$norm$ & $8.201953e-01$ & $3.363583e-01$ & $3.175066e-01$ & $2.985451e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-3.891948e-03$ & $-6.411377e-03$ & $-7.707898e-03$ & $-8.603721e-03$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.1 ,h= 0.01 \\
+	\hline
+	$h - h^{1}$ & $9.981319e-01$ \\
+	& $1.095112e+00$ \\
+	& $5.634551e+00$ \\
+	\hline
+	$h - h^{2}$ & $9.981319e-01$ \\
+	& $9.844610e-01$ \\
+	& $5.604337e+00$ \\
+	\hline
+	$h - h^{3}$ & $9.981319e-01$ \\
+	& $9.359979e-01$ \\
+	& $5.538305e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.01 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 2.24 )$\\
+	\hline
+	$norm$ & $4.556908e-01$ & $3.350562e-01$ & $3.175504e-01$ & $2.997936e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-4.252914e-04$ & $-6.614727e-04$ & $-8.030417e-04$ & $-9.146924e-04$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.01 ,h= 0.01 \\
+	\hline
+	$h - h^{1}$ & $9.937430e-01$ \\
+	& $1.006946e+00$ \\
+	& $4.956332e+00$ \\
+	\hline
+	$h - h^{2}$ & $9.937430e-01$ \\
+	& $9.078146e-01$ \\
+	& $4.777649e+00$ \\
+	\hline
+	$h - h^{3}$ & $9.937430e-01$ \\
+	& $8.776189e-01$ \\
+	& $4.740691e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.001 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 2.347 )$\\
+	\hline
+	$norm$ & $4.175219e-01$ & $3.353267e-01$ & $3.178226e-01$ & $2.999673e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-4.352918e-05$ & $-6.744383e-05$ & $-8.216091e-05$ & $-9.379893e-05$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.001 ,h= 0.01 \\
+	\hline
+	$h - h^{1}$ & $9.934343e-01$ \\
+	& $9.974813e-01$ \\
+	& $5.516967e+00$ \\
+	\hline
+	$h - h^{2}$ & $9.934343e-01$ \\
+	& $9.009470e-01$ \\
+	& $5.253906e+00$ \\
+	\hline
+	$h - h^{3}$ & $9.934343e-01$ \\
+	& $8.718256e-01$ \\
+	& $5.159622e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.1 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 1.5 )$\\
+	\hline
+	$norm$ & $8.158024e-01$ & $3.356618e-01$ & $3.163116e-01$ & $2.970525e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-4.127036e-03$ & $-6.665248e-03$ & $-7.952274e-03$ & $-8.845206e-03$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.1 ,h= 0.001 \\
+	\hline
+	$h - h^{1}$ & $9.980247e-01$ \\
+	& $1.085934e+00$ \\
+	& $5.893837e+00$ \\
+	\hline
+	$h - h^{2}$ & $9.980247e-01$ \\
+	& $9.768371e-01$ \\
+	& $5.873544e+00$ \\
+	\hline
+	$h - h^{3}$ & $9.980247e-01$ \\
+	& $9.294710e-01$ \\
+	& $5.824602e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.01 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 2.2 )$\\
+	\hline
+	$norm$ & $4.630469e-01$ & $3.350444e-01$ & $3.175386e-01$ & $2.997906e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-4.355116e-04$ & $-6.712398e-04$ & $-8.118244e-04$ & $-9.225835e-04$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.01 ,h= 0.001 \\
+	\hline
+	$h - h^{1}$ & $9.933318e-01$ \\
+	& $9.983642e-01$ \\
+	& $5.407861e+00$ \\
+	\hline
+	$h - h^{2}$ & $9.933318e-01$ \\
+	& $9.012428e-01$ \\
+	& $5.294680e+00$ \\
+	\hline
+	$h - h^{3}$ & $9.933318e-01$ \\
+	& $8.717826e-01$ \\
+	& $5.268700e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.1 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.001 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 2.305 )$\\
+	\hline
+	$norm$ & $4.243990e-01$ & $3.353266e-01$ & $3.178451e-01$ & $2.999970e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-4.420776e-05$ & $-6.804645e-05$ & $-8.264522e-05$ & $-9.421503e-05$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.1  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.001 ,h= 0.001 \\
+	\hline
+	$h - h^{1}$ & $9.938688e-01$ \\
+	& $9.929934e-01$ \\
+	& $8.616720e+00$ \\
+	\hline
+	$h - h^{2}$ & $9.938688e-01$ \\
+	& $8.974299e-01$ \\
+	& $8.566988e+00$ \\
+	\hline
+	$h - h^{3}$ & $9.938688e-01$ \\
+	& $8.687858e-01$ \\
+	& $8.639684e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.1 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 6.1 )$\\
+	\hline
+	$norm$ & $3.637357e-01$ & $3.339955e-01$ & $6.830301e-01$ & $2.904198e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-2.029844e-02$ & $-3.141424e-02$ & $-3.143315e-02$ & $-4.321580e-02$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.1 ,h= 0.1 \\
+	\hline
+	$h - h^{1}$ & $5.758272e-01$ \\
+	& $7.677315e-01$ \\
+	& $3.419978e+00$ \\
+	\hline
+	$h - h^{2}$ & $5.758272e-01$ \\
+	& $6.977486e-01$ \\
+	& $3.146745e+00$ \\
+	\hline
+	$h - h^{3}$ & $5.758272e-01$ \\
+	& $6.743642e-01$ \\
+	& $3.107321e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.01 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 12.84 )$\\
+	\hline
+	$norm$ & $4.360437e-01$ & $3.935498e-01$ & $4.207634e-01$ & $2.966670e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-2.709480e-03$ & $-5.474107e-03$ & $-6.771196e-03$ & $-5.974955e-03$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.01 ,h= 0.1 \\
+	\hline
+	$h - h^{1}$ & $5.188668e-01$ \\
+	& $6.337876e-01$ \\
+	& $2.383285e+00$ \\
+	\hline
+	$h - h^{2}$ & $5.184482e-01$ \\
+	& $6.942770e-01$ \\
+	& $2.392453e+00$ \\
+	\hline
+	$h - h^{3}$ & $5.184482e-01$ \\
+	& $6.513611e-01$ \\
+	& $2.023899e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.001 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 17.245 )$\\
+	\hline
+	$norm$ & $7.938445e-01$ & $1.051031e+00$ & $7.883623e-01$ & $2.999009e-01$\\
+	\hline
+	$\Delta_{massa}$ & $5.768500e-03$ & $-1.148040e-03$ & $7.035757e-03$ & $-1.936573e-03$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.001 ,h= 0.1 \\
+	\hline
+	$h - h^{1}$ & $5.586838e-01$ \\
+	& $7.723574e-01$ \\
+	& $2.519754e+00$ \\
+	\hline
+	$h - h^{2}$ & $5.348510e-01$ \\
+	& $5.990746e-01$ \\
+	& $2.091775e+00$ \\
+	\hline
+	$h - h^{3}$ & $5.348510e-01$ \\
+	& $6.198744e-01$ \\
+	& $1.905114e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.1 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 4.2 )$\\
+	\hline
+	$norm$ & $2.425386e+00$ & $1.416150e+00$ & $1.243476e+02$ & $nan$\\
+	\hline
+	$\Delta_{massa}$ & $-2.611143e-01$ & $-3.463887e-01$ & $-8.251413e-01$ & $-nan$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.1 ,h= 0.01 \\
+	\hline
+	$h - h^{1}$ & $3.955153e+00$ \\
+	& $1.629203e+00$ \\
+	& $1.804529e+02$ \\
+	\hline
+	$h - h^{2}$ & $3.955153e+00$ \\
+	& $1.518031e+00$ \\
+	& $1.781732e+02$ \\
+	\hline
+	$h - h^{3}$ & $3.955153e+00$ \\
+	& $1.505405e+00$ \\
+	& $1.781657e+02$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.01 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 7.01 )$\\
+	\hline
+	$norm$ & $3.469571e-01$ & $3.441464e-01$ & $3.286820e-01$ & $2.999193e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-2.720601e-03$ & $-4.304313e-03$ & $-5.913130e-03$ & $-7.417898e-03$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.01 ,h= 0.01 \\
+	\hline
+	$h - h^{1}$ & $4.130783e-01$ \\
+	& $7.398396e-01$ \\
+	& $3.172371e+00$ \\
+	\hline
+	$h - h^{2}$ & $4.130783e-01$ \\
+	& $6.688980e-01$ \\
+	& $3.052528e+00$ \\
+	\hline
+	$h - h^{3}$ & $4.130783e-01$ \\
+	& $6.355539e-01$ \\
+	& $2.786112e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.001 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 8.188 )$\\
+	\hline
+	$norm$ & $3.470303e-01$ & $8.725930e-01$ & $3.297830e-01$ & $2.999611e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-3.346973e-04$ & $3.025569e-04$ & $-7.824871e-04$ & $-9.772318e-04$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.001 ,h= 0.01 \\
+	\hline
+	$h - h^{1}$ & $4.125083e-01$ \\
+	& $6.967547e-01$ \\
+	& $3.041712e+00$ \\
+	\hline
+	$h - h^{2}$ & $4.125083e-01$ \\
+	& $6.697789e-01$ \\
+	& $3.007581e+00$ \\
+	\hline
+	$h - h^{3}$ & $4.125083e-01$ \\
+	& $6.337471e-01$ \\
+	& $2.730016e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.1 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 4.6 )$\\
+	\hline
+	$norm$ & $1.151076e+01$ & $7.645704e+00$ & $3.399370e+02$ & $nan$\\
+	\hline
+	$\Delta_{massa}$ & $-3.441363e-01$ & $-3.748305e-01$ & $-8.400686e-01$ & $-nan$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.1 ,h= 0.001 \\
+	\hline
+	$h - h^{1}$ & $9.802032e+00$ \\
+	& $1.547688e+00$ \\
+	& $7.776558e+02$ \\
+	\hline
+	$h - h^{2}$ & $9.802032e+00$ \\
+	& $1.342888e+00$ \\
+	& $7.735146e+02$ \\
+	\hline
+	$h - h^{3}$ & $9.802032e+00$ \\
+	& $1.327080e+00$ \\
+	& $7.735068e+02$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.01 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 6.84 )$\\
+	\hline
+	$norm$ & $3.469583e-01$ & $3.440169e-01$ & $3.284579e-01$ & $2.999111e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-2.905882e-03$ & $-4.475841e-03$ & $-6.312849e-03$ & $-7.588774e-03$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.01 ,h= 0.001 \\
+	\hline
+	$h - h^{1}$ & $4.130840e-01$ \\
+	& $7.374283e-01$ \\
+	& $3.751491e+00$ \\
+	\hline
+	$h - h^{2}$ & $4.130840e-01$ \\
+	& $6.663490e-01$ \\
+	& $3.714047e+00$ \\
+	\hline
+	$h - h^{3}$ & $4.130840e-01$ \\
+	& $6.342702e-01$ \\
+	& $3.502241e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.01 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.001 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 8.044 )$\\
+	\hline
+	$norm$ & $3.470350e-01$ & $8.857015e-01$ & $3.283209e-01$ & $2.999922e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-3.421604e-04$ & $-4.913135e-04$ & $-8.034213e-04$ & $-9.751159e-04$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.01  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.001 ,h= 0.001 \\
+	\hline
+	$h - h^{1}$ & $4.124068e-01$ \\
+	& $7.029508e-01$ \\
+	& $4.118375e+00$ \\
+	\hline
+	$h - h^{2}$ & $4.124068e-01$ \\
+	& $6.667749e-01$ \\
+	& $4.087844e+00$ \\
+	\hline
+	$h - h^{3}$ & $4.124068e-01$ \\
+	& $6.309544e-01$ \\
+	& $3.893144e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.1 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 3.4 )$\\
+	\hline
+	$norm$ & $6.384735e-01$ & $9.704658e-01$ & $2.978019e+04$ & $nan$\\
+	\hline
+	$\Delta_{massa}$ & $-1.490970e-02$ & $-6.801894e-02$ & $4.545247e+01$ & $-nan$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.1 ,h= 0.1 \\
+	\hline
+	$h - h^{1}$ & $9.860579e-01$ \\
+	& $9.637855e-01$ \\
+	& $5.619292e+00$ \\
+	\hline
+	$h - h^{2}$ & $9.860579e-01$ \\
+	& $8.997953e-01$ \\
+	& $4.629084e+00$ \\
+	\hline
+	$h - h^{3}$ & $9.860579e-01$ \\
+	& $8.749292e-01$ \\
+	& $4.389513e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.01 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 19.66 )$\\
+	\hline
+	$norm$ & $1.094314e+00$ & $4.454221e-01$ & $3.488648e-01$ & $2.991113e-01$\\
+	\hline
+	$\Delta_{massa}$ & $5.746618e-03$ & $-1.262302e-02$ & $-1.511438e-02$ & $-2.058552e-02$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.01 ,h= 0.1 \\
+	\hline
+	$h - h^{1}$ & $9.440045e-01$ \\
+	& $8.193354e-01$ \\
+	& $3.704201e+00$ \\
+	\hline
+	$h - h^{2}$ & $5.712018e-01$ \\
+	& $6.545682e-01$ \\
+	& $3.231577e+00$ \\
+	\hline
+	$h - h^{3}$ & $5.655065e-01$ \\
+	& $6.301177e-01$ \\
+	& $2.859316e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.1 , \tau =  0.001 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 54.532 )$\\
+	\hline
+	$norm$ & $7.652879e-01$ & $9.334546e-01$ & $3.397229e-01$ & $2.992325e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-8.546636e-04$ & $-6.955955e-03$ & $-6.535029e-03$ & $-9.571283e-03$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.001 ,h= 0.1 \\
+	\hline
+	$h - h^{1}$ & $7.125178e-01$ \\
+	& $6.908112e-01$ \\
+	& $4.079103e+00$ \\
+	\hline
+	$h - h^{2}$ & $6.909241e-01$ \\
+	& $7.172978e-01$ \\
+	& $3.919662e+00$ \\
+	\hline
+	$h - h^{3}$ & $6.869001e-01$ \\
+	& $6.842825e-01$ \\
+	& $3.329980e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.1 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 1.7 )$\\
+	\hline
+	$norm$ & $9.855761e+01$ & $3.550528e+08$ & $2.875045e+32$ & $nan$\\
+	\hline
+	$\Delta_{massa}$ & $-3.395200e-01$ & $3.007095e+04$ & $1.498755e+30$ & $-nan$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.1 ,h= 0.01 \\
+	\hline
+	$h - h^{1}$ & $2.176847e+00$ \\
+	& $1.453128e+00$ \\
+	& $5.077347e+01$ \\
+	\hline
+	$h - h^{2}$ & $4.702792e+00$ \\
+	& $1.868566e+00$ \\
+	& $7.333712e+01$ \\
+	\hline
+	$h - h^{3}$ & $2.568096e+00$ \\
+	& $1.308964e+00$ \\
+	& $7.500009e+01$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.01 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 0.69 )$\\
+	\hline
+	$norm$ & $9.039247e-01$ & $1.453736e+00$ & $1.448175e+03$ & $nan$\\
+	\hline
+	$\Delta_{massa}$ & $-2.566826e-03$ & $-1.394627e-02$ & $1.335236e-02$ & $-nan$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.01 ,h= 0.01 \\
+	\hline
+	$h - h^{1}$ & $1.000000e+00$ \\
+	& $1.173023e+00$ \\
+	& $1.165402e+01$ \\
+	\hline
+	$h - h^{2}$ & $1.000000e+00$ \\
+	& $1.060424e+00$ \\
+	& $1.117344e+01$ \\
+	\hline
+	$h - h^{3}$ & $1.000000e+00$ \\
+	& $9.995429e-01$ \\
+	& $1.081391e+01$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.01 , \tau =  0.001 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 12.806 )$\\
+	\hline
+	$norm$ & $4.240242e-01$ & $4.175284e-01$ & $3.477537e-01$ & $2.987149e-01$\\
+	\hline
+	$\Delta_{massa}$ & $-2.150406e-03$ & $-4.526553e-03$ & $-6.367577e-03$ & $-7.127378e-03$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.001 ,h= 0.01 \\
+	\hline
+	$h - h^{1}$ & $5.330956e-01$ \\
+	& $6.238795e-01$ \\
+	& $6.022877e+00$ \\
+	\hline
+	$h - h^{2}$ & $5.315683e-01$ \\
+	& $6.832817e-01$ \\
+	& $6.087992e+00$ \\
+	\hline
+	$h - h^{3}$ & $5.315683e-01$ \\
+	& $6.402314e-01$ \\
+	& $5.356331e+00$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.1 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 1.7 )$\\
+	\hline
+	$norm$ & $1.861896e+03$ & $6.803302e+06$ & $3.783067e+35$ & $nan$\\
+	\hline
+	$\Delta_{massa}$ & $-1.982005e-02$ & $-4.429861e+02$ & $3.534304e+29$ & $-nan$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.1 ,h= 0.001 \\
+	\hline
+	$h - h^{1}$ & $1.027441e+01$ \\
+	& $1.763451e+00$ \\
+	& $4.244250e+02$ \\
+	\hline
+	$h - h^{2}$ & $5.357894e+01$ \\
+	& $3.531493e+00$ \\
+	& $2.188789e+03$ \\
+	\hline
+	$h - h^{3}$ & $3.072669e+00$ \\
+	& $1.521438e+00$ \\
+	& $6.403191e+01$ \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{ |l|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{$\mu = 0.001 , p(\rho) = 1  \rho, h =  0.001 , \tau =  0.01 $}\\
+	\hline
+	$ $ & $n_{st}/4$ & $n_{st}/2$ & $3n_{st}/4$ & $n_{st}, ( 0.42 )$\\
+	\hline
+	$norm$ & $2.191665e+00$ & $3.503399e+00$ & $1.077707e+04$ & $nan$\\
+	\hline
+	$\Delta_{massa}$ & $-2.612582e-02$ & $-4.801301e-02$ & $4.595465e-02$ & $-nan$\\
+	\hline
+\end{tabular}
+\centering
+\begin{tabular}{ |l|l|}
+	\hline
+	\multicolumn{2}{|c|}{$\mu = 0.001  ,p(\rho) =  1 \rho$}\\
+	\hline
+	$ $ & tau= 0.01 ,h= 0.001 \\
+	\hline
+	$h - h^{1}$ & $3.955153e+00$ \\
+	& $1.259116e+00$ \\
+	& $5.690708e+02$ \\
+	\hline
+	$h - h^{2}$ & $3.955153e+00$ \\
+	& $1.150499e+00$ \\
+	& $5.642160e+02$ \\
+	\hline
+	$h - h^{3}$ & $3.955153e+00$ \\
+	& $1.097598e+00$ \\
+	& $5.634172e+02$ \\
+	\hline
+\end{tabular}
+
+
+
+
+
+\end{document}
