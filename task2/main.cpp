@@ -178,13 +178,13 @@ int main(int argc, char *argv[])
 
         if (task_num == 24)
         {
-            fill_H_initial (H_solution_prev, x_a, x_b, h, H_024);
-            fill_V_initial (V_solution, x_a, x_b, h, V_024);
+            fill_H_initial (H_solution_prev, x_a, x_b, h_nested, H_024);
+            fill_V_initial (V_solution_nested, x_a, x_b, h_nested, V_024);
         }
         if (task_num == 25)
         {
-            fill_H_initial (H_solution_prev, x_a, x_b, h, H_025);
-            fill_V_initial (V_solution, x_a, x_b, h, V_025);
+            fill_H_initial (H_solution_prev, x_a, x_b, h_nested, H_025);
+            fill_V_initial (V_solution_nested, x_a, x_b, h_nested, V_025);
         }
         for (size_t i = 0; i < t_N_nested + 1; ++i)
         {
