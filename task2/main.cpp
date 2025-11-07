@@ -12,7 +12,8 @@
 #include "norms.hpp"
 
 
-#define PRINT 1
+#define PRINT_V 1
+#define PRINT_H 0
 
 static double max_time = 6000;
 static double epsilon = 3 * 1e-3;
@@ -119,12 +120,21 @@ int main(int argc, char *argv[])
             printf("current_stab_norm = %lf\n", stab_norm);
         }
 #endif
-        if (PRINT)
+        if (PRINT_V)
         {
             size_t sz = V_solution.size();
             for (size_t i = 0; i < sz; ++i)
             {
                 fprintf(file, "%e ", V_solution[i]); 
+            }
+            fprintf(file, "\n");
+        }
+        if (PRINT_H)
+        {
+            size_t sz = H_solution.size();
+            for (size_t i = 0; i < sz; ++i)
+            {
+                fprintf(file, "%e ", H_solution[i]); 
             }
             fprintf(file, "\n");
         }
