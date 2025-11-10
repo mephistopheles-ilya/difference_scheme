@@ -12,7 +12,7 @@
 #include "norms.hpp"
 
 
-#define PRINT_V 1
+#define PRINT_V 0
 #define PRINT_H 0
 
 static double max_time = 6000;
@@ -115,7 +115,7 @@ int main(int argc, char *argv[])
 
         stab_norm = stability_norm(H_solution, V_solution);
 #if 1
-        if (stab_index % 1000 == 0)
+        if (stab_index % 5000 == 0)
         {
             printf("current_stab_norm = %lf\n", stab_norm);
         }
