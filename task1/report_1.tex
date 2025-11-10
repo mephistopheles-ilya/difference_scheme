@@ -81,78 +81,43 @@
 		u(t, x) = cos(2\pi t)sin(4\pi x)
 	\end{equation}
 
-	И вычислим правые части $f_{0}$ и $f$ исходных уравнений:
-	\begin{lstlisting}[]
-		inline double f_0(double t, double x)
-		{
-			double dro_dt = std::exp(t) * (std::cos(3 * M_PI * x) + 1.5); 
-			double drou_dx = std::exp(t) * std::cos(2 * M_PI * t) * 
-			(4 * M_PI * std::cos(3 * M_PI * x) * std::cos(4 * M_PI * x) -
-			3 * M_PI * std::sin(3 * M_PI * x) * std::sin(4 * M_PI * x)) + 
-			6 * M_PI * std::exp(t) * std::cos(2 * M_PI * t) * std::cos(4 * M_PI * x);
-			return dro_dt + drou_dx;
-		}
-	\end{lstlisting}
-	В случае линейной зависимости давления от плотности:
-	\begin{lstlisting}[]
-		inline double f_lin(double t, double x, double C, double mu)
-		{
-			double ro = std::exp(t) * (std::cos(3 * M_PI * x) + 1.5);
-			
-			double drou_dt = (std::cos(3 * M_PI * x) * std::sin(4 * M_PI * x) + 
-			1.5 * std::sin(4 * M_PI * x)) *
-			std::exp(t) * (std::cos(2 * M_PI * t) - 
-			2 * M_PI * std::sin(2 * M_PI * t));
-			
-			double drou2_dx = std::exp(t) * std::cos(2 * M_PI * t) * 
-			std::cos(2 * M_PI * t) * 
-			(-3 * M_PI * std::sin(3 * M_PI * x) * 
-			std::sin(4 * M_PI * x) * std::sin(4 * M_PI * x) + 
-			8 * M_PI * std::sin(4 * M_PI * x) * 
-			std::cos(4 * M_PI * x) * std::cos(3 * M_PI * x)) +
-			12 * M_PI * std::exp(t) * std::cos(2 * M_PI * t) * 
-			std::cos(2 * M_PI * t) * std::sin(4 * M_PI * x) * 
-			std::cos(4 * M_PI * x);
-			
-			double d2u_dx2 = -1 * mu * 16 * M_PI * M_PI * 
-			std::cos(2 * M_PI * t) * std::sin(4 * M_PI * x);
-			
-			double dp_dx = C * std::exp(t) * (-3 * M_PI) * std::sin(3 * M_PI * x);
-			
-			return (drou_dt + drou2_dx + dp_dx - d2u_dx2) / ro;
-		}
-	\end{lstlisting}
-	В случай степенно зависимости давления от плотности
-	\begin{lstlisting}[]
-		inline double f_pow(double t, double x, double gamma, double mu)
-		{
-			double ro = std::exp(t) * (std::cos(3 * M_PI * x) + 1.5);
-			
-			double drou_dt = (std::cos(3 * M_PI * x) * std::sin(4 * M_PI * x) + 
-			1.5 * std::sin(4 * M_PI * x)) *
-			std::exp(t) * (std::cos(2 * M_PI * t) - 
-			2 * M_PI * std::sin(2 * M_PI * t));
-			
-			double drou2_dx = std::exp(t) * std::cos(2 * M_PI * t) * 
-			std::cos(2 * M_PI * t) * 
-			(-3 * M_PI * std::sin(3 * M_PI * x) * 
-			std::sin(4 * M_PI * x) * std::sin(4 * M_PI * x) + 
-			8 * M_PI * std::sin(4 * M_PI * x) * 
-			std::cos(4 * M_PI * x) * std::cos(3 * M_PI * x)) +
-			12 * M_PI * std::exp(t) * std::cos(2 * M_PI * t) * 
-			std::cos(2 * M_PI * t) * std::sin(4 * M_PI * x) * 
-			std::cos(4 * M_PI * x);
-			
-			double d2u_dx2 = -1 * mu * 16 * M_PI * M_PI * 
-			std::cos(2 * M_PI * t) * std::sin(4 * M_PI * x);
-			
-			double dp_dx = gamma * std::pow(std::exp(t) * 
-			(std::cos(3 * M_PI * x) + 1.5), gamma - 1) * 
-			std::exp(t) * (-3 * M_PI) * std::sin(3 * M_PI * x);
-			
-			return (drou_dt + drou2_dx + dp_dx - d2u_dx2) / ro;
-		}
-	\end{lstlisting}
+Вычислим правые части $f_0$ и $f$ исходных уравнений:
+
+Для функции $f_0(t,x)$:
+\[
+f_0(t,x) = \frac{\partial\rho}{\partial t} + \frac{\partial(\rho u)}{\partial x}
+\]
+где
+\[
+\frac{\partial\rho}{\partial t} = e^t (\cos(3\pi x) + 1.5)
+\]
+\[
+\frac{\partial(\rho u)}{\partial x} = e^t \cos(2\pi t) \left[4\pi \cos(3\pi x) \cos(4\pi x) - 3\pi \sin(3\pi x) \sin(4\pi x)\right] + 6\pi e^t \cos(2\pi t) \cos(4\pi x)
+\]
+
+В случае линейной зависимости давления от плотности $p = C\rho$:
+\[
+f_{\text{lin}}(t,x,C,\mu) = \frac{1}{\rho} \left( \frac{\partial(\rho u)}{\partial t} + \frac{\partial(\rho u^2)}{\partial x} + \frac{\partial p}{\partial x} - \mu \frac{\partial^2 u}{\partial x^2} \right)
+\]
+где $\rho = e^t (\cos(3\pi x) + 1.5)$ и
+\begin{align*}
+	\frac{\partial(\rho u)}{\partial t} &= (\cos(3\pi x) \sin(4\pi x) + 1.5 \sin(4\pi x)) e^t (\cos(2\pi t) - 2\pi \sin(2\pi t)) \\
+	\frac{\partial(\rho u^2)}{\partial x} &= e^t \cos^2(2\pi t) \left[-3\pi \sin(3\pi x) \sin^2(4\pi x) + 8\pi \sin(4\pi x) \cos(4\pi x) \cos(3\pi x)\right] \\
+	&\quad + 12\pi e^t \cos^2(2\pi t) \sin(4\pi x) \cos(4\pi x) \\
+	\frac{\partial^2 u}{\partial x^2} &= -16\pi^2 \mu \cos(2\pi t) \sin(4\pi x) \\
+	\frac{\partial p}{\partial x} &= C e^t (-3\pi) \sin(3\pi x)
+\end{align*}
+
+В случае степенной зависимости давления от плотности $p = \rho^\gamma$:
+\[
+f_{\text{pow}}(t,x,\gamma,\mu) = \frac{1}{\rho} \left( \frac{\partial(\rho u)}{\partial t} + \frac{\partial(\rho u^2)}{\partial x} + \frac{\partial p}{\partial x} - \mu \frac{\partial^2 u}{\partial x^2} \right)
+\]
+где все компоненты аналогичны линейному случаю, кроме производной давления:
+\[
+\frac{\partial p}{\partial x} = \gamma \left[e^t (\cos(3\pi x) + 1.5)\right]^{\gamma-1} e^t (-3\pi) \sin(3\pi x)
+\]
+
+
 
 	\subsection{Численные эксперименты}
 	
@@ -1080,6 +1045,12 @@
 		\hline
 	\end{tabular}
 	
+	
+	\begin{center}
+		\textbf{Выводы}
+	\end{center}
+
+На основе анализа таблиц с нормами разности точного решения и численного, можно сделать вывод о том, что сходимость имеет порядок $O(\tau + h^{2})$. Так же сходимоcть является условной и имеет вид $\tau <= \gamma * h$, где коэффициент $\gamma$  прямо пропорционален $\tau$ и обратно пропорционален $C$
 	
 	
 	
