@@ -2,13 +2,13 @@ import subprocess
 
 delta = [0.1, 0.01, 0.001]
 degs=[1, 2, 3]
-mus = [0.1, 0.01, 0.001]
-Cs = [1, 10, 100]
+mus = [0.001]
+Cs = [1.4]
 
 for C in Cs:
     for mu in mus:
-        for h in delta:
-            for tau in delta:
+        for h in [0.01]:
+            for tau in [0.001]:
                 print("\\begin{tabular}{ |l|l|l|l|l|}")
                 print("\\hline")
                 if C == 1.4:
@@ -24,7 +24,7 @@ for C in Cs:
                     str(C), 
                     "1" if C != 1.4 else "0", 
                     "-1",
-                    "24",
+                    "25",
                     "0"
                 ], capture_output=True, text=True)
                 stab_time = 1.
@@ -57,7 +57,7 @@ for C in Cs:
                         str(C), 
                         "1" if C != 1.4 else "0", 
                         str(index),
-                        "24",
+                        "25",
                         "0"
                     ], capture_output=True, text=True)
                     for line in result.stdout.split('\n'):
@@ -102,7 +102,7 @@ for C in Cs:
                         str(C), 
                         "1" if C != 1.4 else "0", 
                         str(int(stab_index / 10)),
-                        "24",
+                        "25",
                         str(k)
                     ], capture_output=True, text=True)
                     for line in result.stdout.split('\n'):
