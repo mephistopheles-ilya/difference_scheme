@@ -2,26 +2,15 @@
 
 #include <cmath>
 
-static int __K__ = 0;
 
-inline double H_027 (double x)
-{
-    return 2 + std::sin (__K__ * M_PI * x);
-}
-
-inline double V_027 (double /* x */)
-{
-    return 0;
-}
-
-inline double H_028 (double /* x */)
+inline double H_0 (double /* x */)
 {
     return 1;
 }
 
-inline double V_028 (double x)
+inline double V_0 (double /* x */)
 {
-    return std::sin (__K__ * M_PI * x);
+    return 0;
 }
 
 

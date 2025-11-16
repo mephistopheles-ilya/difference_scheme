@@ -5,6 +5,7 @@
 double calc_C_norm (std::vector<double> &vec);
 double calc_L_norm (std::vector<double> &vec, double h);
 double calc_W_norm (std::vector<double> &vec, double h);
+double C_norm (std::vector<double> &vec1, std::vector<double> &vec2);
 
 
 void sub_real_solution (std::vector<double>& solution, double t, double a, double b, double h, double (*f) (double, double));

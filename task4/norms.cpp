@@ -29,6 +29,17 @@ double calc_C_norm(std::vector<double> &vec)
     return max;
 }
 
+double C_norm (std::vector<double> &vec1, std::vector<double> &vec2)
+{
+    size_t sz = vec1.size();
+    double max = 0;
+    for (size_t i = 0; i < sz; ++i)
+    {
+        max = std::max (max, std::fabs(vec1[i] - vec2[i]));
+    }
+    return max;
+}
+
 
 double calc_L_norm(std::vector<double> &vec, double h)
 {
