@@ -4,7 +4,7 @@ import functools
 print = functools.partial(print, flush=True)
 
 mus = [0.1]
-Cs = [1]
+Cs = [10]
 #Cs = [1.4]
 init_data = [1, 2, 3, 4, 5, 6, 7]
 

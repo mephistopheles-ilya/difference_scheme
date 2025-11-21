@@ -1,0 +1,84 @@
+\documentclass[11pt]{extarticle}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{float}
+\geometry{a4paper, margin=1in, top=0.6in}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{diagbox}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=red, urlcolor=purple]{hyperref}
+
+
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{lemma}{Лемма}
+\newtheorem{definition}{Опр.}
+
+\usepackage{listings}
+
+\lstset{
+	language=C++,
+	basicstyle=\ttfamily\small,
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+	showstringspaces=false,
+	tabsize=4
+}
+
+\begin{document}
+	
+\begin{tabular}{*{ 9 }{|c}}
+	\hline
+	\multicolumn{ 8 }{|c|}{$ \mu =  0.1 , p(\rho) =  1 \cdot \rho , h =  0.001 , \tau =  0.0001 $} \\
+	\hline
+	\diagbox{$\rho$}{u}&  1 &  2 &  3 &  4 &  5 &  6 &  7 \\
+	\hline
+	$ 1 $ & $ 37.183600 $ & $ 26.667400 $ & $ 13.384900 $ & $ 9.111800 $ & $ 7.107800 $ & $ 6.110700 $ & $ 5.749400 $\\
+	\hline
+	$ 2 $ & $ 10.595000 $ & $ 16.015400 $ & $ 10.927700 $ & $ 8.008400 $ & $ 6.983100 $ & $ 6.265400 $ & $ 5.426400 $\\
+	\hline
+	$ 3 $ & $ 8.813600 $ & $ 13.246400 $ & $ 10.036900 $ & $ 7.750200 $ & $ 6.617700 $ & $ 5.981800 $ & $ 5.529400 $\\
+	\hline
+	$ 4 $ & $ 23.592000 $ & $ 11.984800 $ & $ 9.547400 $ & $ 7.660900 $ & $ 6.436000 $ & $ 6.046600 $ & $ 5.408500 $\\
+	\hline
+	$ 5 $ & $ 43.565500 $ & $ 11.279400 $ & $ 9.218700 $ & $ 7.616400 $ & $ 6.857500 $ & $ 6.254500 $ & $ 5.327200 $\\
+	\hline
+	$ 6 $ & $ 49.194500 $ & $ 10.787800 $ & $ 8.979100 $ & $ 7.805500 $ & $ 6.756500 $ & $ 6.202600 $ & $ 5.267000 $\\
+	\hline
+	$ 7 $ & $ 53.766400 $ & $ 10.948400 $ & $ 8.425100 $ & $ 7.693000 $ & $ 6.873800 $ & $ 6.147400 $ & $ 5.215200 $\\
+	\hline
+\end{tabular}
+
+\begin{tabular}{*{ 9 }{|c}}
+	\hline
+	\multicolumn{ 8 }{|c|}{$ \mu =  0.1 , p(\rho) =  10 \cdot \rho , h =  0.001 , \tau =  0.0001 $} \\
+	\hline
+	\diagbox{$\rho$}{u}&  1 &  2 &  3 &  4 &  5 &  6 &  7 \\
+	\hline
+	$ 1 $ & $ 20.626700 $ & $ 16.714200 $ & $ 14.732000 $ & $ 27.878700 $ & $ 22.600000 $ & $ 10.640000 $ & $ 8.016000 $\\
+	\hline
+	$ 2 $ & $ 16.710700 $ & $ 18.382500 $ & $ 18.432000 $ & $ 26.318500 $ & $ 9.215900 $ & $ 6.922300 $ & $ 5.618400 $\\
+	\hline
+	$ 3 $ & $ 14.478200 $ & $ 18.423700 $ & $ 5.172500 $ & $ 14.001300 $ & $ 6.841500 $ & $ 4.542300 $ & $ 4.833900 $\\
+	\hline
+	$ 4 $ & $ 18.470000 $ & $ 5.255900 $ & $ 22.310200 $ & $ 12.787900 $ & $ 5.980400 $ & $ 4.062800 $ & $ 4.487400 $\\
+	\hline
+	$ 5 $ & $ 21.764400 $ & $ 9.460100 $ & $ 25.728500 $ & $ 12.860300 $ & $ 5.894600 $ & $ 4.025300 $ & $ 3.798800 $\\
+	\hline
+	$ 6 $ & $ 17.536300 $ & $ 22.318000 $ & $ 28.387000 $ & $ 12.871400 $ & $ 5.885200 $ & $ 4.111500 $ & $ 3.727500 $\\
+	\hline
+	$ 7 $ & $ 6.306200 $ & $ 24.779700 $ & $ 30.805300 $ & $ 12.864200 $ & $ 5.874900 $ & $ 4.046200 $ & $ 3.669300 $\\
+	\hline
+\end{tabular}
+
+
+
+
+
+
+
+\end{document}

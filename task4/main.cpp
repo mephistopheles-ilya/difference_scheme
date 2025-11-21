@@ -13,9 +13,9 @@
 
 
 
-static double max_time = 6000;
-static double epsilon = 1e-4;
-static int stab_const = 50;
+static const double max_time = 6000;
+static const double epsilon = 1e-4;
+static const int stab_const = 50;
 
 
 int main(int argc, char *argv[])
@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
             stab_V = V_solution;
             stab_count = stab_const;
         }
-#if 1
+#if 0
         if (stab_index % 5000 == 0)
         {
             printf("current_stab_norm = %lf\n", stab_norm);
