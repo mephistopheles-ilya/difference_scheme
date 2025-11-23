@@ -17,6 +17,9 @@ static const double max_time = 6000;
 static const double epsilon = 1e-4;
 static const int stab_const = 50;
 
+#define PRINT_H 0
+#define PRINT_V 0
+
 
 int main(int argc, char *argv[])
 {
@@ -83,6 +86,9 @@ int main(int argc, char *argv[])
     std::vector<double> stab_H (x_N + 1, 0);
     std::vector<double> stab_V (x_N + 1, 0);
 
+
+    FILE* f = fopen("2d.txt", "w");
+
     int stab_count = stab_const;
     double stab_time = t_a;
     double time1 = 0, time2 = 0;
@@ -118,6 +124,27 @@ int main(int argc, char *argv[])
             printf("current_stab_norm = %lf\n", stab_norm);
         }
 #endif
+
+        if (PRINT_H)
+        {
+            for (auto val: H_solution)
+            {
+                fprintf(f, "%lf ", val);
+            }
+            fprintf(f, "\n");
+        }
+
+        if (PRINT_V)
+        {
+            for (auto val: V_solution)
+            {
+                fprintf(f, "%lf ", val);
+            }
+            fprintf(f, "\n");
+        }
+
+
+
         std::swap(H_solution_prev, H_solution);
         stab_index += 1;
     }
@@ -125,6 +152,8 @@ int main(int argc, char *argv[])
     stab_index -= 1;
     time2 = clock();
     double calc_time = (time2 - time1)/CLOCKS_PER_SEC;
+
+    fclose (f);
 
 #if 0
     std::string file_name = "H_res.txt";
