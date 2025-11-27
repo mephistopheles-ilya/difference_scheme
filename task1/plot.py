@@ -40,7 +40,7 @@ plt.plot(x_a, V_a, label="real")
 plt.legend()
 plt.title("V function")
 plt.xlabel("x")
-plt.ylabel("V(1, x)")
+plt.ylabel("V(1 , x)")
 
 plt.tight_layout()
 plt.show()
